@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Lista de usuarios con rol CONSULTA</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<b>Lista de usuarios con rol CONSULTA</b>
+	</br>
+	</br>
+	<table border='1'>
+		<tr>
+			<th>USERNAME</th>
+			<th>NOMBRE_APELLIDOS</th>
+		</tr>
+		<td:block th:each="usuario : ${listaUsuariosConsulta}">
+			<tr>
+				<td th:text="${usuario.username}"></td>
+				<td th:text="${usuario.nombreApellidos}"></td>
+			</tr>
+		</td:block>
+	</table>
+	<br>
+</body>
+
+</html>
