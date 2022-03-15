@@ -2,6 +2,8 @@ package com.nttdata.activididadfinal.repository.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +12,7 @@ import javax.persistence.Table;
 public class Asignaturas {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Integer id;
 	
@@ -52,6 +55,12 @@ public class Asignaturas {
 
 	public void setCurso(Integer curso) {
 		this.curso = curso;
+	}
+
+	@Override
+	public String toString() {
+		return "Asignaturas [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", curso=" + curso
+				+ "]";
 	}
 	
 }
