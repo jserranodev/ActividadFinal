@@ -29,7 +29,7 @@ public class AsignaturasController {
 	private AsignaturasService asignaturasService;
 
 	@GetMapping()
-	@Cacheable(value="asignaturas")
+	@Cacheable(value = "asignaturas")
 	public ResponseEntity<List<Asignaturas>> consultarTodos() {
 		try {
 			return new ResponseEntity<>(asignaturasService.listar(), HttpStatus.OK);

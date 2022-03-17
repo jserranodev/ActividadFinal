@@ -5,15 +5,15 @@ import java.util.List;
 import com.nttdata.activididadfinal.repository.entity.Asignaturas;
 
 public interface AsignaturasService {
-	public List<Asignaturas> listar();
+	public List<Asignaturas> listar() throws Exception;
 
-	public Asignaturas buscarPorId(Integer id);
+	public Asignaturas buscarPorId(Integer id) throws Exception;
 
-	public void eliminar();
+	public List<Asignaturas> eliminar() throws Exception;
 
-	public Asignaturas borrarPorId(Integer id);
+	public Asignaturas borrarPorId(Integer id) throws Exception;
 
-	public Asignaturas actualizar(Asignaturas asig);
+	public Asignaturas actualizar(Asignaturas asig) throws Exception;
 
-	public Asignaturas crear(Asignaturas asig);
+	public Asignaturas crear(Asignaturas asig) throws Exception;
 }

@@ -31,7 +31,12 @@ public class ActFinalWebController {
 	@GetMapping("/asignaturas")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String listar(Model model) {
-		model.addAttribute("listaAsignaturas", asignaturasService.listar());
+		try {
+			model.addAttribute("listaAsignaturas", asignaturasService.listar());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "asignaturas.html";
 	}
 

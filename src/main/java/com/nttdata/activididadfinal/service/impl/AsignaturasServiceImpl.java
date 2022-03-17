@@ -16,25 +16,23 @@ public class AsignaturasServiceImpl implements AsignaturasService {
 	AsignaturasRepoJPA asignaturasRepoJPA;
 
 	@Override
-	public List<Asignaturas> listar() {
-		// TODO Auto-generated method stub
+	public List<Asignaturas> listar() throws Exception {
 		return asignaturasRepoJPA.findAll();
 	}
 
 	@Override
-	public Asignaturas buscarPorId(Integer id) {
-		// TODO Auto-generated method stub
+	public Asignaturas buscarPorId(Integer id) throws Exception {
 		return asignaturasRepoJPA.findById(id).orElse(null);
 	}
 
 	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
+	public List<Asignaturas> eliminar() throws Exception {
 		asignaturasRepoJPA.deleteAll();
+		return listar();
 	}
 
 	@Override
-	public Asignaturas borrarPorId(Integer id) {
+	public Asignaturas borrarPorId(Integer id) throws Exception {
 		Asignaturas asig = this.buscarPorId(id);
 		if (asig != null)
 			asignaturasRepoJPA.deleteById(id);
@@ -42,7 +40,7 @@ public class AsignaturasServiceImpl implements AsignaturasService {
 	}
 
 	@Override
-	public Asignaturas actualizar(Asignaturas asig) {
+	public Asignaturas actualizar(Asignaturas asig) throws Exception {
 		Asignaturas asigEnBbdd = this.buscarPorId(asig.getId());
 		if (asigEnBbdd == null) {
 			return null;
@@ -56,7 +54,7 @@ public class AsignaturasServiceImpl implements AsignaturasService {
 	}
 
 	@Override
-	public Asignaturas crear(Asignaturas asig) {
+	public Asignaturas crear(Asignaturas asig) throws Exception{
 		System.out.println(asig.toString());
 		return asignaturasRepoJPA.save(asig);
 	}
